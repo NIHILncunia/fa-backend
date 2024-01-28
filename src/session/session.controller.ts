@@ -19,6 +19,11 @@ export class SessionController {
     return this.sessionService.getAllSession();
   }
 
+  @Get('/campain/:campainId')
+  async getAllSessionByCampain(@Param('campainId') campainId: string): Promise<Session[]> {
+    return this.sessionService.getAllSessionByCampain(campainId);
+  }
+
   @Get('/id/:id')
   async getSessionById(
     @Param('id') id: string

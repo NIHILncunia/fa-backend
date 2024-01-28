@@ -16,6 +16,14 @@ export class SessionService {
     return this.prisma.session.findMany();
   }
 
+  async getAllSessionByCampain(campainId: string): Promise<Session[]> {
+    return this.prisma.session.findMany({
+      where: {
+        campain_id: campainId,
+      },
+    });
+  }
+
   async getSessionById(id: string): Promise<Session | NotFoundEntity> {
     const session = await this.prisma.session.findFirst({
       where: {
