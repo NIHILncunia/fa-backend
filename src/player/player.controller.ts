@@ -24,7 +24,7 @@ export class PlayerController {
     return this.playerService.getAllPCByCampain(campainId);
   }
 
-  @Get(':id')
+  @Get('/id/:id')
   async getPCById(
     @Param('id') id: string
   ): Promise<Player | NotFoundEntity> {
@@ -44,7 +44,7 @@ export class PlayerController {
     return this.playerService.createPC(createPcDto);
   }
 
-  @Patch(':id')
+  @Patch('/id/:id')
   async updatePC(
     @Param('id') id: string,
     @Body() updatePCDto: Partial<Player>
